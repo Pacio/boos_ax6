@@ -40,8 +40,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@main
-      with:
-        fetch-depth: 0
+  #    with:
+  #      fetch-depth: 0
 
     - name: Initialization environment
       env:
@@ -70,12 +70,12 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
         
-    - name: Cache
-      uses: klever1988/cachewrtbuild@main
-      with:
-        ccache: 'true'
-        toolchain: true
-        prefix: ${{ github.workspace }}/openwrt
+ #   - name: Cache
+ #     uses: klever1988/cachewrtbuild@main
+ #     with:
+ #       ccache: 'true'
+ #       toolchain: true
+ #       prefix: ${{ github.workspace }}/openwrt
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
